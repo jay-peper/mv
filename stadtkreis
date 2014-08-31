@@ -1,0 +1,14 @@
+#!/bin/bash
+LK1=$1
+LKS=$@
+DATE=$(date +%Y%m%d)
+
+./catSemkol.sh | head -n1 \
+ | ./cutKV.sh > "lk/wk_${LK1}.csv"
+
+#for LK in $LKS; do
+  ./filterkreis.sh "${LKS}" >> "lk/wk_${LK1}.csv"
+#done
+
+csv2ods -d";" --encoding=utf-8 -i "lk/wk_${LK1}.csv" -o "lk/lk_${LK1}_${DATE}.ods"
+
