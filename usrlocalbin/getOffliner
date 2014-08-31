@@ -1,0 +1,1 @@
+sql 'select Vorname,Nachname,Straße_1,PLZ,Ort from ungesperrte where offline != ""'
